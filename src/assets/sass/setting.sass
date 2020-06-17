@@ -1,0 +1,123 @@
+// COLORS
+$Blue                    :       #0039A6
+$LightBlue               :       #EEF2FA
+$White                   :       rgb(255, 255, 255)  
+$WhiteGrey               :       #f3f3f3
+$Black                   :       #000000
+$Red                     :       #D52B1E
+$Purple                  :       #6C89F4
+$Grey                    :       #747474
+$Green                   :       #219653
+$LightGrey               :       #bdbdbd
+$DarkGrey                :       #222529    
+$PlayerInput             :       rgb(31, 36, 39)         
+$PlayerValue             :       rgb(255, 18, 0)         
+$Turquoise               :       #03CCBB
+
+
+// FONT SIZES
+$font14                  :       14px
+$ThemeFontSize           :       33px
+
+
+// SCREEN SIZES
+$DesktopWidth            :       1200px
+$SmDesktopWidth          :       992px
+$TableWidth              :       768px
+$PhoneWidth              :       576px
+$SmPhoneWidth            :       320px
+
+
+// MIXINS
+=afs( $First, $Second, $Third, $Zero:$First,)
+    @media screen and ( max-width: $TableWidth )
+        font-size: $Second
+    @media screen and ( max-width: $PhoneWidth )
+        font-size: $Third
+    @media screen and ( min-width: $TableWidth )
+        font-size: $First
+    @media screen and ( min-width: $SmDesktopWidth )
+        font-size: $Zero
+
+
+// GLOBAL STYLES
+body
+    padding: 0
+    margin: 0
+    font-family: 'Gotham Pro', sans-serif
+    &.lock
+        overflow: hidden
+
+.container
+    margin: auto
+    @media screen and ( max-width: $TableWidth )
+        padding: 0px 1rem
+        width: 100%
+        box-sizing: border-box
+        margin: 0
+
+    @media screen and ( min-width: $TableWidth )
+        width: 750px
+
+    @media screen and ( min-width: $SmDesktopWidth )
+        width: 970px
+
+    @media screen and ( min-width: $DesktopWidth )
+        width: 1140px
+
+::-webkit-scrollbar
+    width: 2px
+    height: 3px
+
+::-webkit-scrollbar-button
+    background-color: transparent
+
+::-webkit-scrollbar-track
+    background-color: $Blue
+
+::-webkit-scrollbar-track-piece
+    background-color: #eee
+   
+
+::-webkit-scrollbar-thumb
+    height: 50px
+    background-color: $Blue
+    border-radius: 3px
+
+::-webkit-scrollbar-corner
+    background-color: transparent
+
+::-webkit-resizer
+    background-color: $Blue
+
+.VideoMore
+    display: flex
+    justify-content: space-between
+    align-items: center
+    text-transform: uppercase
+    margin: 2rem 0rem 1rem 0rem
+    font-weight: 600
+    .theme
+        +afs(30px, 24px, 14px)
+    .more
+        color: $Red
+        padding: 1.5rem 0rem
+        font-weight: bold
+        white-space: nowrap
+        +afs(20px, 16px, 12px)
+        &:after
+            content: ' >'
+
+a
+    text-decoration: none
+
+input, 
+button,
+select, 
+input:hover, 
+button:hover,
+select:hover, 
+input:focus, 
+button:focus,
+select:focus, 
+    outline: none !important
